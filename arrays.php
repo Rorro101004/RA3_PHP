@@ -56,7 +56,7 @@
    echo "<br>";
    }
    
-   //Crear array asociativo, ordenandolos  de mayor a menor
+   //Crear array asociativo, ordenandolos  de mayor a menor y mostrandolo por pantalla
 
    echo "<br>";
    $notas_estudiantes = array("Miguel"=>5, "Luis"=>7, "Marta"=>10, "Isabel" => 8, "Aitor" => 4, "Pepe"=> 1);
@@ -70,28 +70,28 @@
    }
 
    //Calcular nota media, mostrando dos decimales
-   //Mostrar los alumnos cuya nota sea mayor a la nota media
    $notas_total = 0;
    foreach ($notas_estudiantes as $nombres => $notas)
    {
-        $notas_total += $notas_estudiantes[$nombres];
-   }
-   $nota_media = number_format($notas_total/5,2 );
-   echo "<br>";
-   
-   echo "<br>";
-   echo "Nota media: ".$nota_media;
-   echo "<br>";
-   echo "Notas medias mayores a ".$nota_media.".";
-   foreach ($notas_estudiantes as $nombres => $notas)
-   {
+       $notas_total += $notas_estudiantes[$nombres];
+    }
+    $nota_media = number_format($notas_total/5,2 );
+    echo "<br>";
+    
+    echo "<br>";
+    echo "Nota media: ".$nota_media;
+    echo "<br>";
+    echo "Notas medias mayores a ".$nota_media.".";
+    foreach ($notas_estudiantes as $nombres => $notas)
+    {
         if ($notas_estudiantes[$nombres] >= $nota_media)
         {   echo "<br>";
             echo $nombres." : ".$notas_estudiantes[$nombres];
             
         }
-   }
- echo "<br>";
+    }
+    echo "<br>";
+    //Seleccionar mejor alumno
  foreach ($notas_estudiantes as $nombres => $notas)
  {
      foreach ($notas_estudiantes as $nombres1 => $notas2)
