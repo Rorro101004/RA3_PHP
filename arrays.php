@@ -8,28 +8,28 @@
 <body>
     <?php
     $indice = 1;
-   
-    $persona = array("nombre"=>"Sara","apellido"=>"Martinez","edad"=>23,"ciudad"=>"Barcelona");
-    foreach ($persona as  $i) {
+   //recorrer el array persona por elemento con indice
+   $persona = array("nombre"=>"Sara","apellido"=>"Martinez","edad"=>23,"ciudad"=>"Barcelona");
+   foreach ($persona as  $i) {
+       
+       echo"Dato ".$indice." : ".$i.
+       "<br>";
+       $indice++;
+       if ($indice == 5) {
+           $indice = 1;
+        }
+    }
+    echo "<br>";
+    
+    //recorrer el array persona por categoría
+    foreach ($persona as $i => $y) {
         
-        echo"Dato ".$indice." : ".$i.
+        echo $i." : ". $y.
         "<br>";
-        $indice++;
-        if ($indice == 5) {
-            $indice = 1;
-        }
-      }
-   echo "<br>";
-   
-      foreach ($persona as $i => $y) {
-      
-          echo $i." : ". $y.
-           "<br>";
-        }
+    }
+    //recorrer el array persona por elemento con indice cambiando la edad
     
        $persona["edad"] = 24;
-       /* $car = array("brand"=>"Ford", "model"=>"Mustang", "year"=>1964); 
-        $car["year"] = 2024; */
         echo  "<br>";
         foreach ($persona as  $i) {
      
@@ -38,10 +38,15 @@
             $indice++;
           }
           echo  "<br>";
+
+
+          //borrar la clave ciudad y su elemento para mostrarlo con var dump
         unset($persona["ciudad"]);
          var_dump($persona);
          echo  "<br>";
 
+         //Usar explode para separar el string apartir de cada coma, y crear un array con esos elementos
+         //mostrandolos de forma descendente
   $letters = "a,b,c,d,e,f";
   $letras = explode(",",$letters);
         echo "<br>";
@@ -50,7 +55,9 @@
    echo"letter ". ($i+1).":".$letras[$i] ;
    echo "<br>";
    }
- 
+   
+   //Crear array asociativo, ordenandolos  de mayor a menor
+
    echo "<br>";
    $notas_estudiantes = array("Miguel"=>5, "Luis"=>7, "Marta"=>10, "Isabel" => 8, "Aitor" => 4, "Pepe"=> 1);
    arsort($notas_estudiantes);
@@ -62,7 +69,8 @@
      echo "<br>";
    }
 
-
+   //Calcular nota media, mostrando dos decimales
+   //Mostrar los alumnos cuya nota sea mayor a la nota media
    $notas_total = 0;
    foreach ($notas_estudiantes as $nombres => $notas)
    {
@@ -79,7 +87,7 @@
    {
         if ($notas_estudiantes[$nombres] >= $nota_media)
         {   echo "<br>";
-            echo $nombres.":".$notas_estudiantes[$nombres];
+            echo $nombres." : ".$notas_estudiantes[$nombres];
             
         }
    }
@@ -88,8 +96,9 @@
  {
      foreach ($notas_estudiantes as $nombres1 => $notas2)
      if ($notas_estudiantes[$nombres] > $notas_estudiantes[$nombres1] )
-     {
-         echo  $notas_estudiantes[$nombres];
+     {     
+         echo "La nota más alta es ".$notas_estudiantes[$nombres]." y el mejor o la mejor alumna es
+         ".$nombres;
          echo "<br>";
         
         break;
